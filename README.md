@@ -13,6 +13,19 @@ End-to-end Playwright test suite for the sample demo site used in this repo.
 **Install**
 
 ```bash
+# Playwright E2E Tests
+
+End-to-end Playwright test suite for this demo project (login, product, cart, payment flows).
+
+**Quick summary**
+- **What**: Playwright + @playwright/test JavaScript tests using small page-helper modules.
+- **Location**: tests in the `tests/` folder, helpers in the `E2E/` folder, test data in `data/`.
+
+**Prerequisites**
+- Node.js v16+ installed
+
+**Install dependencies**
+```bash
 npm install
 npx playwright install
 ```
@@ -24,34 +37,20 @@ npx playwright install
 npx playwright test
 ```
 
-- Run a single test file (headed example):
+- Run a single test file (headed):
 
 ```bash
 npx playwright test tests/E2E.spec.js --headed
 ```
 
-- Show the HTML report produced by Playwright (after a run):
+- Show the HTML report (after a run):
 
 ```bash
 npx playwright show-report
 ```
 
-**Project structure**
-- `package.json`: project dependencies and metadata.
-- `playwright.config.js`: Playwright configuration and reporter.
-- `data/testData.json`: test data (URL, credentials, product name, customer info).
-- `E2E/`: page-object-like helpers for flows:
-  - [E2E/Loginpage.js](E2E/Loginpage.js)
-  - [E2E/Product.js](E2E/Product.js)
-  - [E2E/Cartpage.js](E2E/Cartpage.js)
-  - [E2E/Paymentpage.js](E2E/Paymentpage.js)
-- `tests/`:
-  - [tests/E2E.spec.js](tests/E2E.spec.js) — main scenario linking the helpers and `data/testData.json`.
-  - [tests/example.spec.js](tests/example.spec.js) — example test file.
-- `playwright-report/`: generated HTML report output from Playwright runs.
-
-**Notes & recommendations**
-- `package.json` currently has no `scripts` defined; you can add convenience scripts, for example:
+**Suggested npm scripts**
+Add these to `package.json` for convenience:
 
 ```json
 "scripts": {
@@ -61,12 +60,19 @@ npx playwright show-report
 }
 ```
 
-- `playwright.config.js` uses the HTML reporter and enables traces/videos/screenshots for retries — useful for debugging failures.
-- Keep credentials and sensitive data out of `testData.json` for public repos. Prefer environment variables or `.env` for secrets.
+**Project structure**
+- `package.json` — project metadata and deps
+- `playwright.config.js` — Playwright config and reporters
+- `data/testData.json` — test data (URLs, credentials, product info)
+- `E2E/` — page helpers: [E2E/Loginpage.js](E2E/Loginpage.js), [E2E/Product.js](E2E/Product.js), [E2E/Cartpage.js](E2E/Cartpage.js), [E2E/Paymentpage.js](E2E/Paymentpage.js)
+- `tests/` — test specs (see [tests/E2E.spec.js](tests/E2E.spec.js))
+- `playwright-report/` — generated HTML report directory
+- `test-results/` — structured test results (if configured)
 
-**Contributing / Extending**
-- Add tests to `tests/` and helper modules to `E2E/` following the existing pattern.
-- Update `data/testData.json` or wire a config loader if you need multiple environments.
+**Notes & recommendations**
+- Run `npx playwright install` if browser binaries are missing.
+- Keep secrets out of `data/testData.json`; use environment variables or a secure vault for real projects.
+- Consider adding CI scripts (Jenkinsfile is present) to run `npx playwright test` and publish reports.
 
-**Contact**
-- If you want me to run the test suite, add scripts, or improve assertions, tell me which action to take next.
+**Next steps**
+- I can add the `scripts` to `package.json`, run the test suite, or extend the README with CI instructions — tell me which you'd like.
