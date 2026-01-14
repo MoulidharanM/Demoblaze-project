@@ -39,6 +39,7 @@ exports.Cartpage=class Cartpage{
    
    const total=await this.page.locator(this.amount).textContent();
    console.log("Cart Value:"+total);
+   await expect(this.page.getByRole('button',this.orderbut )).toBeVisible();
    await this.page.getByRole('button',this.orderbut ).click();
 
 }

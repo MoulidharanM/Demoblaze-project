@@ -1,5 +1,5 @@
 const{test,expect}=require('@playwright/test')
-const { LoginPage } = require('../E2E/loginpage');
+const { LoginPage } = require('../E2E/Loginpage');
 const {Product}=require('../E2E/Product');
 const { Paymentpage } = require('../E2E/Paymentpage');
 const { Cartpage } = require('../E2E/Cartpage');
