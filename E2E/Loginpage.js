@@ -16,7 +16,7 @@ class LoginPage{
     async gotologin(){
             await this.page.goto(this.url);
             await expect(this.page).toHaveURL(this.url);
-            //console.log("Title:"+await this.page.title());
+            console.log("Title:"+await this.page.title());
 
     }
     async login(username,password){
