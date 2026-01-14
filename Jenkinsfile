@@ -2,7 +2,14 @@ pipeline {
     agent any 
     
     tools {
-        nodejs "node" // Make sure "node" matches your Jenkins Tool name
+        nodejs "node" // Ensure this matches your Jenkins Global Tool Configuration
+    }
+
+    environment {
+        // Mapping Jenkins credentials to environment variables used in your code
+        username = credentials('DEMOBLAZE_USERNAME')
+        password = credentials('DEMOBLAZE_PASSWORD')
+        url = "https://demoblaze.com/index.html"
     }
 
     stages {
@@ -14,8 +21,7 @@ pipeline {
         }
         stage('Test') {
             steps {
-                // We use '|| true' so the pipeline doesn't stop on test failure
-                // allowing us to still archive the report in the post block
+                // Running the test; '|| true' allows the pipeline to continue for reporting even if tests fail
                 sh 'npx playwright test || true'
             }
         }
@@ -23,6 +29,7 @@ pipeline {
 
     post {
         always {
+            // Archives and publishes the HTML report for every build
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
             publishHTML(target: [
                 allowMissing: false,
