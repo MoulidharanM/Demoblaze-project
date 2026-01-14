@@ -2,11 +2,10 @@ pipeline {
     agent any 
     
     tools {
-        nodejs "node" // Ensure this matches your Jenkins Global Tool Configuration
+        nodejs "node" 
     }
 
     environment {
-        // Mapping Jenkins credentials to environment variables used in your code
         username = credentials('DEMOBLAZE_USERNAME')
         password = credentials('DEMOBLAZE_PASSWORD')
         url = "https://demoblaze.com/index.html"
@@ -15,21 +14,22 @@ pipeline {
     stages {
         stage('Install') {
             steps {
-                sh 'npm install'
-                sh 'npx playwright install --with-deps'
+                // Use 'bat' instead of 'sh' for Windows
+                bat 'npm install'
+                bat 'npx playwright install --with-deps'
             }
         }
         stage('Test') {
             steps {
-                // Running the test; '|| true' allows the pipeline to continue for reporting even if tests fail
-                sh 'npx playwright test || true'
+                // Use 'bat' and wrap variables in % to access them in Batch
+                bat 'npx playwright test || exit 0'
             }
         }
     }
 
     post {
         always {
-            // Archives and publishes the HTML report for every build
+            // Archive and publish report
             archiveArtifacts artifacts: 'playwright-report/**', allowEmptyArchive: true
             publishHTML(target: [
                 allowMissing: false,
