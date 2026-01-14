@@ -6,3 +6,16 @@ node_modules/
 /blob-report/
 /playwright/.cache/
 /playwright/.auth/
+
+
+# IDE settings
+.vscode/
+
+# Local secrets (NEVER COMMIT THIS)
+data/.env
+
+# Test outputs
+test-results/
+playwright-report/
+blob-report/
+playwright/.cache/
