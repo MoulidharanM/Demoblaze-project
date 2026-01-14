@@ -20,7 +20,7 @@ const month=testData.customer.month;
 const year=testData.customer.year;
 
 test('Login',async({page})=>{
-    console.log("DEBUG: Username from env is ->", usermail);
+    
     
     //loginpage
     const loginobj=new LoginPage(page,url);
