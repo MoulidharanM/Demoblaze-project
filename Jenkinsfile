@@ -39,6 +39,13 @@ pipeline {
                 reportFiles: 'index.html',
                 reportName: 'Playwright HTML Report'
             ])
+            emailext (
+                to: 'dharansow2017@gmail.com',
+                subject: "Build #${env.BUILD_NUMBER} - ${currentBuild.currentResult}",
+                body: """The build ${currentBuild.currentResult} for ${env.JOB_NAME}.
+                         View Report: http://localhost:8080/job/DemoBlazePipeline/${env.BUILD_NUMBER}/Playwright_20HTML_20Report/""",
+                from: 'jenkins-automation@gmail.com'
+            )
         }
     }
 }
