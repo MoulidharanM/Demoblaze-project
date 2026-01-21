@@ -25,7 +25,7 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['playwright-smart-reporter', { 
-      outputFile: './playwright-report/index.html', // Path where the report will be saved
+      outputFile: 'playwright-report/index.html', // Path where the report will be saved
       historyFile: 'test-history.json',          // Optional: for tracking flakiness
       maxHistoryRuns: 10,
     }],
