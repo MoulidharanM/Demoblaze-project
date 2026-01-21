@@ -1,0 +1,83 @@
+{
+  "runs": [],
+  "tests": {
+    "E2E.spec.js::Step 1: User Login": [
+      {
+        "passed": true,
+        "duration": 5558,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 7036,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": false,
+        "retry": 1
+      }
+    ],
+    "E2E.spec.js::Step 2: Product Selection": [
+      {
+        "passed": true,
+        "duration": 3726,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": true,
+        "retry": 1
+      }
+    ],
+    "E2E.spec.js::Step 3: Cart Cleaning": [
+      {
+        "passed": false,
+        "duration": 5959,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": false,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": true,
+        "retry": 1
+      }
+    ],
+    "E2E.spec.js::Step 4: Payment Processing": [
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": true,
+        "retry": 0
+      },
+      {
+        "passed": false,
+        "duration": 0,
+        "timestamp": "2026-01-21T15:23:22.097Z",
+        "skipped": true,
+        "retry": 1
+      }
+    ]
+  },
+  "summaries": [
+    {
+      "runId": "run-1769008973209",
+      "timestamp": "2026-01-21T15:22:53.209Z",
+      "total": 8,
+      "passed": 2,
+      "failed": 2,
+      "skipped": 4,
+      "flaky": 0,
+      "slow": 0,
+      "duration": 28888,
+      "passRate": 25
+    }
+  ]
+}
